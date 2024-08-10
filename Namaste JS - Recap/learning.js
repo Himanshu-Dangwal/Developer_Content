@@ -1,6 +1,7 @@
-console.log("Hello World");
+// console.log("Hello World");
 
-//Hoisting in Javascript
+/*Hoisting in Javascript
+
 dummy();
 console.log(x);
 
@@ -10,3 +11,17 @@ function dummy(){
     console.log("I'm a dummy functiom");
     return;
 }
+
+*/
+
+//Scope chain and Lexical environment
+function a(){
+    c();
+    function c(){
+        console.log(b);
+    }
+    var b = 30;
+}
+
+var b = 10;
+a();
