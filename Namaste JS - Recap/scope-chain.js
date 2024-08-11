@@ -9,3 +9,13 @@ function a(){
 
 var b = 10;
 a();
+
+//Scope checking
+
+var temp;
+function test(){
+    temp = 100;
+    console.log(temp);
+}
+
+test();
