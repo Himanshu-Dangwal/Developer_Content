@@ -13,8 +13,36 @@
   Output - [{ category: 'Food', totalSpent: 10 }] // Can have multiple categories, only one example is mentioned here
 */
 
+
+// class Food{
+//   constructor(c,p){
+//     this.category = c;
+//     this.totalSpent = p;
+//   }
+// }
+
 function calculateTotalSpentByCategory(transactions) {
-  return [];
+  const totalSpentByCategory = {};
+
+  for (let i = 0; i < transactions.length; i++) {
+    const { category, price } = transactions[i];
+
+    if (!totalSpentByCategory[category]) {
+      totalSpentByCategory[category] = 0;
+    }
+
+    totalSpentByCategory[category] += price;
+  }
+
+  const result = [];
+  for (const [category, totalSpent] of Object.entries(totalSpentByCategory)) {
+    result.push({
+      category: category,
+      totalSpent: totalSpent,
+    });
+  }
+
+  return result;
 }
 
 module.exports = calculateTotalSpentByCategory;
