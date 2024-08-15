@@ -40,3 +40,17 @@ setTimeout(display, 1000); // Initial call to start the countdown
 
 
 */
+
+let startTime = performance.now(); 
+console.log(startTime)
+function display() {
+    let endTime = performance.now(); 
+    console.log(endTime)
+    let actualDelay = endTime - startTime; 
+
+    console.log(`Expected delay: 1000ms`);
+    console.log(`Actual delay: ${actualDelay.toFixed(2)}ms`);
+}
+
+setTimeout(display, 1000);
+
