@@ -7,3 +7,10 @@ function double(ele){
 const values = arr.map(double);
 console.log(values)
 
+
+
+const values2 = arr.map((ele)=>{
+    return ele*2;
+})
+
+console.log(values2)
