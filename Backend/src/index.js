@@ -2,6 +2,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const cors = require("cors")
 
+const todoRoute = require("../routes/todo")
 const app = express();
 app.use(cors())
 
@@ -25,6 +26,7 @@ app.get("/",(req,res)=>{
     res.send("I'm an express server from a new branch");
 })
 
+app.use("/api/todo",todoRoute)
 
 app.listen(PORT,(req,res)=>{
     console.log(`Server started at PORT ${PORT}`);
