@@ -1,4 +1,4 @@
-const joi = require("joi")
+const Joi = require("joi")
 
 module.exports.todoSchema = Joi.object({
     title : Joi.string().min(3),

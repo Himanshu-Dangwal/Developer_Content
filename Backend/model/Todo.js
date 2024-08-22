@@ -3,12 +3,12 @@ const Schema = mongoose.Schema;
 
 const todoSchema = new Schema({
     title : {
-        type : string,
+        type : String,
         min : 3
     },
 
     description : {
-        type : string,
+        type : String,
         min : 5
     }
 },{timestamps:true})
