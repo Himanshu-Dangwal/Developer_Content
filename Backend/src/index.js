@@ -5,7 +5,7 @@ const cors = require("cors")
 const todoRoute = require("../routes/todo")
 const app = express();
 app.use(cors())
-
+app.use(express.json())
 const PORT = 8080;
 const URI = "mongodb://localhost:27017/"
 
