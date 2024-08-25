@@ -1,21 +1,11 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import Header from './components/Header'
+import HeaderWithButton from './components/HeaderWithButton'
 
 function App() {
-  const [title, setTitle] = useState("Himanshu")
-
-  function handleClick(){
-    let number = Math.random();
-    setTitle(number)
-  }
-
   return (
     <>
-     <button onClick={handleClick}>Change something</button>
-     <Header title={title}></Header>
+     <HeaderWithButton></HeaderWithButton>
      <Header title={"Coder"}></Header>
     </>
   )

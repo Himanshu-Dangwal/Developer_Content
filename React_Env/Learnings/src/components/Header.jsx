@@ -1,9 +1,8 @@
-import React from 'react'
-
-function Header({title}) {
+// eslint-disable-next-line react/prop-types
+function Header({ title }) {
   return (
     <div>
-        Hello my name is {title}
+      Hello my name is {title}
     </div>
   )
 }
