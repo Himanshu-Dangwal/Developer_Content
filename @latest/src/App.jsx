@@ -1,6 +1,7 @@
+import React from 'react'
 import './App.css'
 import Home from './components/Home'
-import Profile from './components/Profile'
+const Profile = React.lazy(() => import('./components/Profile'))
 
 import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom"
 
