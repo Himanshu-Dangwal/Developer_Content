@@ -18,6 +18,8 @@ function isLegal(age) {
     return false;
 }
 console.log(isLegal(19));
+//One more way
+// function delay(runMe : () => void)
 function delay(runMe) {
     setTimeout(() => {
         runMe();
@@ -27,3 +29,14 @@ function runMe() {
     console.log("I will run after 1 seconds");
 }
 delay(runMe);
+function isLegalUser(user) {
+    if (user.age > 18) {
+        return true;
+    }
+    return false;
+}
+console.log(isLegalUser({
+    firstName: "Himanshu",
+    lastName: "Dangwal",
+    age: 17
+}));

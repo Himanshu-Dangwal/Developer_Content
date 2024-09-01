@@ -40,3 +40,21 @@ function runMe() {
 }
 
 delay(runMe);
+
+
+function isLegalUser(user: {
+    firstName: string;
+    lastName: string;
+    age: number
+}) {
+    if (user.age > 18) {
+        return true;
+    }
+    return false;
+}
+
+console.log(isLegalUser({
+    firstName: "Himanshu",
+    lastName: "Dangwal",
+    age: 17
+}))
