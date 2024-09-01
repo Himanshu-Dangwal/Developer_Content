@@ -41,12 +41,13 @@ function runMe() {
 
 delay(runMe);
 
-
-function isLegalUser(user: {
-    firstName: string;
-    lastName: string;
+interface User {
+    firstName: string,
+    lastName: string,
     age: number
-}) {
+}
+
+function isLegalUser(user: User) {
     if (user.age > 18) {
         return true;
     }
