@@ -15,3 +15,28 @@ function sayMyname(firstName: any, lastName: string) {
 
 sayMyname(10, "Himanshu");
 sayMyname("Himanshu", "Dangwal");
+
+
+function isLegal(age: number): boolean {
+    if (age > 18) {
+        return true;
+    }
+    return false;
+}
+
+console.log(isLegal(19));
+
+//One more way
+// function delay(runMe : () => void)
+
+function delay(runMe: Function) {
+    setTimeout(() => {
+        runMe();
+    }, 1000)
+}
+
+function runMe() {
+    console.log("I will run after 1 seconds");
+}
+
+delay(runMe);
