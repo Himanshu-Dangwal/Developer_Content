@@ -40,3 +40,19 @@ console.log(isLegalUser({
     lastName: "Dangwal",
     age: 17
 }));
+//Generics in JS
+function test(args) {
+    return args[0];
+}
+let op = test([1, 2, 3]);
+let op2 = test(["Himanshu", "Rojina"]);
+console.log(op);
+console.log(op2);
+//Understanding Generics
+function test2(args) {
+    return args[0];
+}
+let op3 = test2([1, 2, 3]);
+let op4 = test2(["Himanshu", "Rojina"]);
+console.log(op);
+console.log(op2);
