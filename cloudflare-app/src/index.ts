@@ -11,8 +11,13 @@
  * Learn more at https://developers.cloudflare.com/workers/
  */
 
+
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		return new Response('Hello World!');
+		if (request.method == "GET") {
+			return Response.json({ message: "I'm a get request" });
+		} else {
+			return Response.json({ message: "I am not a get request" });
+		}
 	},
 } satisfies ExportedHandler<Env>;
