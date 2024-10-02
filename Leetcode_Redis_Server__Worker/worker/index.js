@@ -22,7 +22,8 @@ async function startWorker() {
 
         while (true) {
             try {
-                cc
+                const submission = await client.brPop("submissionQueue", 0);
+                await processSubmission(submission.element);
             } catch (error) {
                 console.error("Error processing submission:", error);
                 // Implement your error handling logic here. For example, you might want to push
