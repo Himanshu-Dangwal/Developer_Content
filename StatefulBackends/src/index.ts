@@ -1,17 +1,29 @@
-import { games } from "./store"
+import { GameManager } from "./store"
 import { startLogger } from "./logger"
 
 
 startLogger();
 
-setInterval(() => {
-    games.push({
-        id: Math.random().toString(),
-        whitePlayerName: "Himanshu",
-        blackPlayerName: "Blacky",
-        moves: []
-    })
-}, 5000)
+// setInterval(() => {
+//     games.push({
+//         id: Math.random().toString(),
+//         whitePlayerName: "Himanshu",
+//         blackPlayerName: "Blacky",
+//         moves: []
+//     })
+// }, 5000)
+
+
+const chessGame = new GameManager();
+
+const newGameId = chessGame.addGame("Himanshu", "Shubham")
+
+setTimeout(() => {
+    console.log(newGameId)
+    chessGame.addMove(newGameId, "E3F6");
+}, 3000)
+
+export default chessGame;
 
 /*
 We need a sticky architecture to make sure the users are directed to the correct server and joined the correct room
