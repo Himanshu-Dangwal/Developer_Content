@@ -1,0 +1,8 @@
+launch an ec2 instance, create an AMI
+
+
+/*
+
+Create a launch instance
+Create ASG
+
