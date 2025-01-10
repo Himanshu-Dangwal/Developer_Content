@@ -1,0 +1,7 @@
+WE can use psql to play around with database and insert or modify data using loops
+or via using different types of logic.
+
+
+TO run postgres locally using docker
+
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
