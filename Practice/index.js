@@ -41,7 +41,21 @@ multiplyBy2(3);
 
 */
 
-// Using closures
+Function.prototype.myBind = function (...args) {
+    let functionCallingMyBind = this, boundThis = args[0], params = args.slice(1);
+    return function (...newArgs) {
+        return functionCallingMyBind.apply(boundThis, [...params, ...newArgs]);
+    };
+};
+
+let multiply = function (x, y) { console.log(x * y); };
+
+let multiplyBy2 = multiply.myBind(this, 2);
+multiplyBy2(5);
+
+
+
+/*
 
 let multiply = function (x) {
     return function (y) {
@@ -51,3 +65,69 @@ let multiply = function (x) {
 
 let multiplyBy3 = multiply(3);
 multiplyBy3(4);
+*/
+
+// Polyfill for Bind function
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const API_BASE_URL = "https://www.algoexpert.io/api/fe/questions";
+
+async function fetchQuestions() {
+    const response = await fetch(API_BASE_URL);
+    const questions = await response.json();
+
+    return questions;
+}
+
+function getQuestionsByCategory(questions) {
+    const questionsByCategory = {};
+
+    questions.forEach((question) => {
+        if (questionsByCategory.hasOwnProperty(question[category])) {
+            questionsByCategory[quesion[category]].push(question);
+        } else {
+            questionsByCategory[quesion[category]] = [question];
+        }
+    });
+
+    return questionsByCategory;
+}
+
+async function printValues() {
+    const questions = await fetchQuestions();
+    const questionsByCategory = getQuestionsByCategory(questions);
+
+    for (const [category, questionsArray] of Object.entries(
+        questionsByCategory
+    )) {
+        console.log(category);
+        questionsArray.forEach((question) => {
+            console.log(question.title);
+        });
+    }
+}
+
+printValues();
