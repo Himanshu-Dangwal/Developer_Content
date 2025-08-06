@@ -1,43 +1,43 @@
-// console.log("Hello");
+console.log("Hello");
 
-// let obj1 = {
-//     firstName: "Himanshu",
-//     lastName: "Dangwal",
-//     printName: function (hometown) {
-//         console.log(`Object is ${this.firstName} ${this.lastName} and lives in ${hometown}`)
-//     }
-// }
-// // function printName(hometown) {
-// //     console.log(`Object is ${this.firstName} ${this.lastName} and lives in ${hometown}`)
-// // }
-
-// obj1.printName("Dehradun");
-
-// let obj2 = {
-//     firstName: "Amit",
-//     lastName: "Chauhan"
+let obj1 = {
+    firstName: "Himanshu",
+    lastName: "Dangwal",
+    printName: function (hometown) {
+        console.log(`Object is ${this.firstName} ${this.lastName} and lives in ${hometown}`)
+    }
+}
+// function printName(hometown) {
+//     console.log(`Object is ${this.firstName} ${this.lastName} and lives in ${hometown}`)
 // }
 
-// obj1.printName.call(obj2, "USA");
+obj1.printName("Dehradun");
+
+let obj2 = {
+    firstName: "Amit",
+    lastName: "Chauhan"
+}
+
+obj1.printName.call(obj2, "USA");
 
 // //Call method (Function borrowing)
 
 
 
 // //Bind Method
-// let printFullNameBinded = obj1.printName.bind(obj2, "USA");
-// console.log(printFullNameBinded)
-// printFullNameBinded()
+let printFullNameBinded = obj1.printName.bind(obj2, "USA");
+console.log(printFullNameBinded)
+printFullNameBinded()
 
 
 
 // //Curying in JS
 
 // /* 1. Using bind method
-// let multiply = function (x, y) { console.log(x * y); }
+let multiply = function (x, y) { console.log(x * y); }
 
-// let multiplyBy2 = multiply.bind(this, 2);
-// multiplyBy2(3);
+let multiplyBy2 = multiply.bind(this, 2);
+multiplyBy2(3);
 
 // */
 
@@ -103,20 +103,31 @@ async function fetchQuestions() {
     return questions;
 }
 
+// const questions = await fetchQuestions()
+
+
 function getQuestionsByCategory(questions) {
-    const questionsByCategory = {};
+    console.log(questions)
+   const questionsBycategory = {}
 
-    questions.forEach((question) => {
-        console.log(question)
-        if (questionsByCategory.hasOwnProperty(question.category)) {
-            questionsByCategory[question.category].push(question);
-        } else {
-            questionsByCategory[question.category] = [question];
+   questions.forEach(question => {
+        if(questionsBycategory.hasOwnProperty(question.category)){
+            questionsBycategory[question.category].push(question);
+        }else{
+            questionsBycategory[question.category] = [question];
         }
-    });
+   })
 
-    return questionsByCategory;
+   return questionsBycategory;
 }
+
+// console.log(getQuestionsByCategory(questions))
+
+
+
+
+
+
 
 async function printValues() {
     const questions = await fetchQuestions();
@@ -129,6 +140,8 @@ async function printValues() {
         questionsArray.forEach((question) => {
             console.log(question.name);
         });
+
+        console.log("------- Important --------   Category " + category + " list ends here ---------")
     }
 }
 
