@@ -1,4 +1,4 @@
-console.log("Hello");
+// console.log("Hello");
 
 let obj1 = {
     firstName: "Himanshu",
@@ -11,14 +11,14 @@ let obj1 = {
 //     console.log(`Object is ${this.firstName} ${this.lastName} and lives in ${hometown}`)
 // }
 
-obj1.printName("Dehradun");
+// obj1.printName("Dehradun");
 
 let obj2 = {
     firstName: "Amit",
     lastName: "Chauhan"
 }
 
-obj1.printName.call(obj2, "USA");
+// obj1.printName.call(obj2, "USA");
 
 // //Call method (Function borrowing)
 
@@ -26,8 +26,8 @@ obj1.printName.call(obj2, "USA");
 
 // //Bind Method
 let printFullNameBinded = obj1.printName.bind(obj2, "USA");
-console.log(printFullNameBinded)
-printFullNameBinded()
+// console.log(printFullNameBinded)
+// printFullNameBinded()
 
 
 
@@ -37,7 +37,7 @@ printFullNameBinded()
 let multiply = function (x, y) { console.log(x * y); }
 
 let multiplyBy2 = multiply.bind(this, 2);
-multiplyBy2(3);
+// multiplyBy2(3);
 
 // */
 
@@ -98,7 +98,7 @@ const API_BASE_URL = "https://www.algoexpert.io/api/fe/questions";
 async function fetchQuestions() {
     const response = await fetch(API_BASE_URL);
     const questions = await response.json();
-    console.log(questions);
+    // console.log(questions);
 
     return questions;
 }
@@ -107,19 +107,36 @@ async function fetchQuestions() {
 
 
 function getQuestionsByCategory(questions) {
-    console.log(questions)
-   const questionsBycategory = {}
+    const questionsByCategory = new Map();
 
-   questions.forEach(question => {
-        if(questionsBycategory.hasOwnProperty(question.category)){
-            questionsBycategory[question.category].push(question);
-        }else{
-            questionsBycategory[question.category] = [question];
+    questions.forEach((question) => {
+        const category = question.category;
+        if (!questionsByCategory.has(category)) {
+            questionsByCategory.set(category, []);
         }
-   })
+        questionsByCategory.get(category).push(question);
+    });
 
-   return questionsBycategory;
+    return questionsByCategory;
 }
+
+
+/*
+
+    // console.log(questions)
+//    const questionsBycategory = {}
+
+//    questions.forEach(question => {
+//         if(questionsBycategory.hasOwnProperty(question.category)){
+//             questionsBycategory[question.category].push(question);
+//         }else{
+//             questionsBycategory[question.category] = [question];
+//         }
+//    })
+
+//    return questionsBycategory;
+
+*/
 
 // console.log(getQuestionsByCategory(questions))
 
@@ -133,9 +150,7 @@ async function printValues() {
     const questions = await fetchQuestions();
     const questionsByCategory = getQuestionsByCategory(questions);
 
-    for (const [category, questionsArray] of Object.entries(
-        questionsByCategory
-    )) {
+    for (const [category, questionsArray] of questionsByCategory) {
         console.log(category);
         questionsArray.forEach((question) => {
             console.log(question.name);
