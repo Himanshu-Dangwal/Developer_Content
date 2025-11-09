@@ -26,3 +26,25 @@ axios.delete(URL,{
     data : {name:Himanshu},
     withCredentials : True
 })
+
+
+
+// Axios vs Fetch
+
+/** 
+| Feature                             | **Fetch (built-in)**                                              | **Axios (3rd-party library)**                                  |
+| ----------------------------------- | ----------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Availability**                    | Native JS API (built into browsers, Node 18+)                     | External library (install with `npm i axios`)                  |
+| **Data Parsing**                    | You must manually convert response to JSON using `.json()`        | Automatically converts JSON data                               |
+| **Error Handling**                  | Only rejects on *network errors*, not HTTP errors (e.g. 404, 500) | Rejects for both *network* and *HTTP errors*                   |
+| **Request Timeout**                 | No built-in timeout support                                       | Has built-in timeout configuration                             |
+| **Request & Response Interceptors** | ❌ Not available                                                   | ✅ Easy to add interceptors for auth/logging                    |
+| **Upload/Download Progress**        | Harder to track manually                                          | Built-in support (`onUploadProgress`, etc.)                    |
+| **Older Browser Support**           | Needs polyfill for IE                                             | Works in older browsers                                        |
+| **Default Headers**                 | Only `Content-Type` for some requests                             | Automatically sets headers like `Accept: application/json`     |
+| **Request Cancelation**             | Supported via `AbortController` (manual)                          | Simpler with `CancelToken` (now also supports AbortController) |
+| **JSON Handling**                   | Manual: `res.json()`                                              | Automatic                                                      |
+| **File Uploads**                    | Manual setup via `FormData`                                       | Built-in handling with simpler syntax                          |
+| **Node.js Support**                 | Built-in in Node 18+, else needs `node-fetch`                     | Full Node support always                                       |
+
+*/
