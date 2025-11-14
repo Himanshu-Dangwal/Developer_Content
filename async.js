@@ -27,6 +27,7 @@ axios.delete(URL,{
     withCredentials : True
 })
 
+//In config we can provide an object
 
 
 // Axios vs Fetch
