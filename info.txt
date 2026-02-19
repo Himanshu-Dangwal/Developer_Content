@@ -2,3 +2,16 @@
 
 
 // Use => tsc -b to transpile ts to js
+
+
+To create and run typescript file.
+
+First make sure you are not using the global ts, use local ts with configs.
+
+Steps to run a file named -> test.ts
+
+npm init -y
+npm i -D typescript @types/node
+npx tsc -v
+npx tsc test.ts
+node test.js
